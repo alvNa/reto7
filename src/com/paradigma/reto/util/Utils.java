@@ -11,12 +11,12 @@ import java.util.regex.Pattern;
 /**
  * Utilities to be used in the application.
  *
- * @author Álvaro Navarro
+ * @author Ã�lvaro Navarro
  */
 public final class Utils
 {
     /**
-     * Given a mail of a person returns it´s username.
+     * Given a mail of a person returns itÂ´s username.
      * Ej: jrola@empresa.com returns jrola
      * @param mail
      * @return String the username of the mail
@@ -31,7 +31,7 @@ public final class Utils
     /**
      * Given a name of a person in the format specified returns the username
      * of yhis person.
-     * Ej: José Luis, Ramón returns jlramon
+     * Ej: JosÃ© Luis, RamÃ³n returns jlramon
      * @param name
      * @return String the username of one person
      */
@@ -39,7 +39,7 @@ public final class Utils
     {
         StringTokenizer userName = new StringTokenizer(name);
         boolean surName = false;
-        String result = "";
+        StringBuilder result = new StringBuilder();
         String token = "";
 
         while (userName.hasMoreTokens())
@@ -48,16 +48,16 @@ public final class Utils
 
             if (!surName)
             {
-                result += token.trim().substring(0, 1).toLowerCase();
+                result.append(token.trim().substring(0, 1).toLowerCase());
                 surName = token.contains(Constants.COMMA);
             }
             else
             {
-                result += unAccent(token.trim().toLowerCase());
+            	result.append(unAccent(token.trim().toLowerCase()));
             }
         }
 
-        return result;
+        return result.toString();
     }
 
     /**
